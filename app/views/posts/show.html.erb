@@ -1,0 +1,23 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<div class="middle-class">
+  <div class="L_box boxbg">
+  <%= image_tag @post.image.url(:large), class:"image_show" %><br/>
+  <b>Description:</b>
+  <%= @post.description %><br/><%= simple_format "@#{@post.user.email}"%><br/><br/><br/>
+
+    <div class="alignright">
+
+      <div class="btnd floatright">
+        <% if @post.user == current_user %>
+          <%= button_to 'Edit', edit_post_path(@post), class:"btn buttonbg", :method => "get" %>
+          <%= button_to 'Delete', @post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= button_to 'Back', posts_path, class:"btn buttonbg middle-class", :method => "get" %>
+      </div>
+</div>
+

@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Gemstone
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    //<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  %body
+    .temp_margin
+    .jumbotron-fluid
+      =render 'home/header'
+      .container
+        - flash.each do |name, msg|
+          = content_tag(:div, msg, class: "alert alert-info")
+      =yield
+      =render 'home/footer'

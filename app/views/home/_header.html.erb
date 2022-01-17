@@ -1,0 +1,87 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<nav class="navbar navbar-fixed-top navbar-dark bg-gradient-dark">
+  <div class="navbar-nav navbarcustom " id="navbar1">
+    <%= link_to 'GemstoneLogo', root_path, class:'navbar-brand custombrand verticalalign'%>
+    <li class="nav-item active verticalalign">
+      <%= link_to 'Home', root_path, class:'btn btn-primary' %>
+    </li>
+    <li class="nav-item verticalalign">
+      <%= link_to 'About', home_about_path, class:'btn btn-default' %>
+    </li>
+    <%if user_signed_in? %>
+      <li class="nav-item verticalalign">
+        <%= link_to 'Edit profile', edit_user_registration_path, class:'btn btn-default' %>
+      </li><li class="nav-item verticalalign">
+    <%= link_to 'Log out', destroy_user_session_path, class:'btn btn-default', method: :delete %>
+  </li>
+      <li class="nav-item verticalalign">
+        <%= link_to 'New post', new_post_path, class:'btn btn-default'%>
+      </li>
+      <% else %>
+    <li class="nav-item verticalalign">
+      <%= link_to 'Log in', new_user_session_path, class:'btn btn-default' %>
+    </li>
+      <li class="nav-item verticalalign">
+    <%= link_to 'Sign up', new_user_registration_path, class:'btn btn-default' %>
+        <% end %>
+  </li>
+
+
+    <div class="btn-group-toggle align-self-end custom2" data-toggle="buttons" id="navbar3" >
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="brightness" checked="checked" > Light
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="brightness2"> Dark
+      </label>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+    $(document).ready(function () {
+        mycolor = localStorage.getItem("colour");
+        fontcolor = localStorage.getItem("text-colour");
+        boxcolor= localStorage.getItem("box");
+        buttoncolor= localStorage.getItem("button");
+        $("body").css("background", mycolor);
+        $("body").css("color", fontcolor);
+        $(".boxbg").css("background", boxcolor);
+        $(".buttonbg").css("background", buttoncolor);
+        $('#brightness').click(function () {
+            mycolor = '#bebebe';
+            fontcolor = '#000';
+            boxcolor = '#b0b0b0';
+            buttoncolor = '#e3e3e3';
+            $("body").css("background", mycolor);
+            $("body").css("color", fontcolor);
+            $(".boxbg").css("background", boxcolor);
+            $(".buttonbg").css("background", buttoncolor);
+            localStorage.setItem("colour", mycolor);
+            localStorage.setItem("text-colour", fontcolor);
+            localStorage.setItem("box",boxcolor);
+            localStorage.setItem("button", buttoncolor);
+        });
+        $('#brightness2').click(function () {
+            mycolor = "#272727";
+            fontcolor = '#CCC';
+            boxcolor = '#171717';
+            buttoncolor= '#616161';
+            $("body").css("background", mycolor);
+            $("body").css("color", fontcolor);
+            $(".boxbg").css("background", boxcolor);
+            $(".buttonbg").css("background", buttoncolor);
+            localStorage.setItem("colour", mycolor);
+            localStorage.setItem("text-colour", fontcolor);
+            localStorage.setItem("box",boxcolor);
+            localStorage.setItem("button", buttoncolor);
+
+        });
+    });
+
+
+
+
+
+</script>
