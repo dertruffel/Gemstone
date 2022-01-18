@@ -3,7 +3,7 @@
 <div id="posts" class="middle-class fixed">
     <% @posts.each do |post| %><br/>
       <div class="box boxbg">
-
+        <%=link_to image_tag(post.image.url(:medium), :class => "image"), post %>
        <br/>
         </div>
         <div class="center_text">
