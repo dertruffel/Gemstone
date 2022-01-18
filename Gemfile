@@ -66,4 +66,6 @@ gem 'will_paginate_infinite'
 gem 'inline_svg'
 gem 'mobile-fu'
 
+gem 'tkh_admin_panel'
+
 
