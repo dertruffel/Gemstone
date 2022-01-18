@@ -14,6 +14,7 @@ class User < ApplicationRecord
   #     t.string "last_sign_in_ip"
   #     t.index ["email"], name: "index_users_on_email", unique: true
   #     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  #     t.boolean "isadmin", default: false
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
