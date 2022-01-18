@@ -21,14 +21,21 @@
       <li class="nav-item verticalalign">
         <%= link_to 'New post', new_post_path, class:'btn btn-default'%>
       </li>
+      <%if current_user.isadmin? %>
+        <li class="nav-item verticalalign">
+          <%= link_to 'Admin Panel', admin_panel_index_path, class: 'btn btn-default' %>
+        </li>
+      <% end %>
       <% else %>
     <li class="nav-item verticalalign">
       <%= link_to 'Log in', new_user_session_path, class:'btn btn-default' %>
     </li>
       <li class="nav-item verticalalign">
     <%= link_to 'Sign up', new_user_registration_path, class:'btn btn-default' %>
-        <% end %>
   </li>
+
+    <% end %>
+
 
 
     <div class="btn-group-toggle align-self-end custom2" data-toggle="buttons" id="navbar3" >
