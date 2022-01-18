@@ -27,32 +27,6 @@ ActiveRecord::Schema.define(version: 2022_01_18_125032) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "setting_translations", force: :cascade do |t|
-    t.bigint "setting_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "site_name"
-    t.string "site_tagline"
-    t.string "blog_name"
-    t.string "blog_tagline"
-    t.index ["locale"], name: "index_setting_translations_on_locale"
-    t.index ["setting_id"], name: "index_setting_translations_on_setting_id"
-  end
-
-  create_table "settings", force: :cascade do |t|
-    t.string "site_name"
-    t.string "site_tagline"
-    t.boolean "enable_comments_in_pages", default: false
-    t.boolean "disable_blog", default: false
-    t.string "blog_name"
-    t.string "blog_tagline"
-    t.boolean "enable_comments_in_blog", default: true
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "contact_email"
-    t.string "company_name"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
