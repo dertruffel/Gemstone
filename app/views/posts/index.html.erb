@@ -12,9 +12,14 @@
         <%= simple_format "@#{post.user.email if post.user}"%><br/><br/>
         <div class="alignright">
           <div class="btnd floatright">
-            <% if post.user == current_user %>
+            <%if user_signed_in? %>
+            <% if post.user == current_user%>
               <%= button_to 'Edit', edit_post_path(post), class:"btn buttonbg", :method => "get" %>
               <%= button_to 'Delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            <%if current_user.isadmin?%>
+                <%= button_to 'Admin delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+            <% end %>
             <% end %>
           </div>
         </div>

@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :admin_manager, only: [:destroy]
+
   # GET /posts
   # GET /posts.json
   def index
@@ -83,6 +85,12 @@ class PostsController < ApplicationController
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
 
+  end
+
+  def admin_manager
+    if isadmin
+      @post = Post.find_by(id:params[:id])
+    end
   end
 
 

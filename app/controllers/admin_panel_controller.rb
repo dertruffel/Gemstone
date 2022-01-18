@@ -3,9 +3,6 @@ class AdminPanelController < ApplicationController
   def index
 
   end
-  def panel
-
-  end
 
   def checkadmin
     unless current_user.isadmin?
