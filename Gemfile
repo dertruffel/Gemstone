@@ -65,5 +65,6 @@ gem 'will_paginate'
 gem 'will_paginate_infinite'
 gem 'inline_svg'
 gem 'mobile-fu'
+gem 'seed_dump'
 
 
