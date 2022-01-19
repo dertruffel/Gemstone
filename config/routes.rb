@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  resources :comments  do
+    member do
+      post :vote_up, :vote_down
+    end
+  end
+
   resources :posts do
+    resources :comments
     member do
       post :vote_up, :vote_down
     end

@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       if current_user.voted_how?(postt)==nil or current_user.voted_how?(postt)==false
         current_user.vote_exclusively_for(postt)
         flash[:notice] = "Upvoted!"
-        redirect_to "/posts"
+        redirect_back fallback_location: root_path
       end
     rescue ActiveRecord::RecordInvalid
       flash[:notice] = "Error has occured!"
@@ -37,13 +37,14 @@ class PostsController < ApplicationController
       postt=@post = Post.find(params[:id])
       if current_user.voted_how?(postt)==nil or current_user.voted_how?(postt)==true
         current_user.vote_exclusively_against(postt)
-        flash[:notice] = "Upvoted!"
-        redirect_to "/posts"
+        flash[:notice] = "Downvoted!"
+        redirect_back fallback_location: root_path
       end
     rescue ActiveRecord::RecordInvalid
       flash[:notice] = "Error has occured!"
     end
   end
+
 
 
   # GET /posts/new
