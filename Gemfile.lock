@@ -232,6 +232,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_dump (3.3.1)
+      activerecord (>= 4)
+      activesupport (>= 4)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -291,7 +294,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  bootsnap (>= 1.4.4)
+  bootsnap
   bootstrap-sass
   byebug
   capybara (>= 3.26)
@@ -300,7 +303,7 @@ DEPENDENCIES
   dotenv-rails
   haml-rails
   inline_svg
-  jbuilder (~> 2.7)
+  jbuilder
   jquery-rails
   jquery-turbolinks
   kt-paperclip
@@ -308,18 +311,19 @@ DEPENDENCIES
   mobvious
   mobvious-rails
   pg
-  puma (~> 5.0)
+  puma
   rack
   rack-mini-profiler (~> 2.0)
-  rails (~> 6.1.4, >= 6.1.4.1)
-  sass-rails (>= 6)
+  rails
+  sass-rails
+  seed_dump
   selenium-webdriver
   thumbs_up
-  turbolinks (~> 5)
+  turbolinks
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.0)
+  webpacker
   will_paginate
   will_paginate_infinite
 
