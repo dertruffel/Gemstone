@@ -12,7 +12,10 @@
         <%= simple_format "@#{post.user.email if post.user}"%><br/><br/>
         <div class="alignright">
           <div class="btnd floatright">
+            <%= post.plusminus %>
             <%if user_signed_in? %>
+              <%= link_to 'Upvote', vote_up_post_path(post), :method => :post, class: "btn buttonbg leftmargin" %>
+              <%= link_to 'Downvote', vote_down_post_path(post), :method => :post, class: "btn buttonbg leftmargin" %>
             <% if post.user == current_user%>
               <%= button_to 'Edit', edit_post_path(post), class:"btn buttonbg", :method => "get" %>
               <%= button_to 'Delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>

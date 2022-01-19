@@ -19,6 +19,31 @@ class PostsController < ApplicationController
   def show
   end
 
+  def vote_up
+    begin
+      postt=@post = Post.find(params[:id])
+      if current_user.voted_how?(postt)==nil or current_user.voted_how?(postt)==false
+        current_user.vote_exclusively_for(postt)
+        flash[:notice] = "Upvoted!"
+        redirect_to "/posts"
+      end
+    rescue ActiveRecord::RecordInvalid
+      flash[:notice] = "Error has occured!"
+    end
+  end
+
+  def vote_down
+    begin
+      postt=@post = Post.find(params[:id])
+      if current_user.voted_how?(postt)==nil or current_user.voted_how?(postt)==true
+        current_user.vote_exclusively_against(postt)
+        flash[:notice] = "Upvoted!"
+        redirect_to "/posts"
+      end
+    rescue ActiveRecord::RecordInvalid
+      flash[:notice] = "Error has occured!"
+    end
+  end
 
 
   # GET /posts/new

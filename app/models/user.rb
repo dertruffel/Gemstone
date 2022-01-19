@@ -20,5 +20,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
   has_many :posts
+  acts_as_voter
 end
 
