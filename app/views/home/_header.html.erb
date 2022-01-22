@@ -7,31 +7,31 @@
   <div class="navbar-nav navbarcustom " id="navbar1">
     <%= link_to 'GemstoneLogo', root_path, class:'navbar-brand custombrand verticalalign'%>
     <li class="nav-item active verticalalign">
-      <%= link_to 'Home', root_path, class:'btn btn-primary' %>
+      <%= link_to 'Home', root_path, class:'btn btn-default btn-lg' %>
     </li>
     <li class="nav-item verticalalign">
-      <%= link_to 'About', home_about_path, class:'btn btn-default' %>
+      <%= link_to 'About', home_about_path, class:'btn btn-default btn-lg' %>
     </li>
     <%if user_signed_in? %>
       <li class="nav-item verticalalign">
-        <%= link_to 'Edit profile', edit_user_registration_path, class:'btn btn-default' %>
+        <%= link_to 'Edit profile', edit_user_registration_path, class:'btn btn-default btn-lg' %>
       </li><li class="nav-item verticalalign">
-    <%= link_to 'Log out', destroy_user_session_path, class:'btn btn-default', method: :delete %>
+    <%= link_to 'Log out', destroy_user_session_path, class:'btn btn-default btn-lg', method: :delete %>
   </li>
       <li class="nav-item verticalalign">
-        <%= link_to 'New post', new_post_path, class:'btn btn-default'%>
+        <%= link_to 'New post', new_post_path, class:'btn btn-default btn-lg'%>
       </li>
       <%if current_user.isadmin? %>
         <li class="nav-item verticalalign">
-          <%= link_to 'Admin Panel', admin_panel_index_path, class: 'btn btn-default' %>
+          <%= link_to 'Admin Panel', admin_panel_index_path, class: 'btn btn-default btn-lg' %>
         </li>
       <% end %>
       <% else %>
     <li class="nav-item verticalalign">
-      <%= link_to 'Log in', new_user_session_path, class:'btn btn-default' %>
+      <%= link_to 'Log in', new_user_session_path, class:'btn btn-default btn-lg' %>
     </li>
       <li class="nav-item verticalalign">
-    <%= link_to 'Sign up', new_user_registration_path, class:'btn btn-default' %>
+    <%= link_to 'Sign up', new_user_registration_path, class:'btn btn-default btn-lg' %>
   </li>
 
     <% end %>
