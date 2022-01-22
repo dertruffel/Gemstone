@@ -1,6 +1,6 @@
 
 
-<div id="posts" class="middle-class fixed">
+<div id="posts" class="middle-class fixed ">
     <% @posts.each do |post| %><br/>
       <div class="box boxbg">
         <%=link_to image_tag(post.image.url(:medium), :class => "image"), post %>
@@ -10,16 +10,12 @@
         <%= post.description %><br/>
         </div><br/>
         <%= simple_format "@#{post.user.email if post.user}"%><br/><br/>
-        <div class="alignright">
-          <div class="btnd floatleft">
+        <div class="alignleft ">
             <%= post.plusminus %>
             <%if user_signed_in? %>
               <%= link_to 'Upvote', vote_up_post_path(post), :method => :post, class: "btn btn-success leftmargin" %>
               <%= link_to 'Downvote', vote_down_post_path(post), :method => :post, class: "btn btn-danger leftmargin" %>
             <% if post.user == current_user%>
-                </div>
-                <div class="btnd floatright">
-                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               <%= button_to 'Edit', edit_post_path(post), class:"btn buttonbg leftmargin", :method => "get" %>
               <%= button_to 'Delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
             <% end %>
@@ -27,11 +23,7 @@
                 <%= button_to 'Admin delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
             <% end %>
             <% end %>
-          </div>
-          </div>
         </div>
-
-
       </div>
     <% end %>
 <br/>
