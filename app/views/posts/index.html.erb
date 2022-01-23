@@ -18,21 +18,27 @@
               <%= link_to 'Downvote', vote_down_post_path(post), :method => :post, class: "btn btn-danger leftmargin" %>
             <% if post.user == current_user%>
                 </div>
-                <div class="btnd floatright">
-                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <%= button_to 'Edit', edit_post_path(post), class:"btn buttonbg leftmargin", :method => "get" %>
-              <%= button_to 'Delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
-            <% end %>
+                </div>
+
+                <div class="edite_del">
+
+              <%= button_to 'Edit', edit_post_path(post), class:"btn btn leftmargin", :method => "get" %></div>
+                  <div class="edite_del">
+              <%= button_to 'Delete', post, class:"btn btn leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+            <% end %></div>
+              <div class="edite_del">
             <%if current_user.isadmin?%>
-                <%= button_to 'Admin delete', post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+                <%= button_to 'Admin delete', post, class:"btn btn leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
             <% end %>
             <% end %>
-          </div>
-          </div>
-        </div>
+
+          </div></div>
 
 
-      </div>
+
+
+
+            </div>
     <% end %>
 <br/>
   <%= will_paginate @posts, renderer: WillPaginateInfinite::InfinitePagination %>
