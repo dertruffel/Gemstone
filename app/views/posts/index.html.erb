@@ -17,8 +17,8 @@
               <%= link_to 'Upvote', vote_up_post_path(post), :method => :post, class: "btn btn-success leftmargin" %>
               <%= link_to 'Downvote', vote_down_post_path(post), :method => :post, class: "btn btn-danger leftmargin" %>
             <% if post.user == current_user%>
-                </div>
-                </div>
+
+
 
                 <div class="edite_del">
 
@@ -31,7 +31,7 @@
                 <%= button_to 'Admin delete', post, class:"btn btn leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
             <% end %>
             <% end %>
-
+            </div></div>
           </div></div>
 
 

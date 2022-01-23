@@ -1,8 +1,11 @@
 <div class="middle-class margin-top box_nm boxbg table temp_margin">
   <h3 class="middle-class">New post</h3>
 <%= render 'form' %>
-
+<div class="container">
+<div style="margin-bottom: 20px">
 <%= button_to 'Back', posts_path, class:"btn middle-class margin-top margin-bottom buttonbg", :method => "get" %>
+</div>
+</div>
 </div>
 
 <%# TODO make new frontend, add functionality in backend, convert to haml if possible %>

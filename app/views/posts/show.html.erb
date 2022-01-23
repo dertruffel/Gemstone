@@ -25,8 +25,8 @@
       <div class="btnd floatright">
         <%= @post.plusminus %>
         <%if user_signed_in? %>
-          <%= link_to 'Upvote', vote_up_post_path(@post), :method => :post, class: "btn buttonbg leftmargin" %>
-          <%= link_to 'Downvote', vote_down_post_path(@post), :method => :post, class: "btn buttonbg leftmargin" %>
+          <%= link_to 'Upvote', vote_up_post_path(@post), :method => :post, class: "btn btn-success leftmargin" %>
+          <%= link_to 'Downvote', vote_down_post_path(@post), :method => :post, class: "btn btn-danger leftmargin" %>
           <% if @post.user == current_user%>
             <div  class="edite_del">
             <%= button_to 'Edit', edit_post_path(@post), class:"btn buttonbg", :method => "get" %>
