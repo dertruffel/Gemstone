@@ -14,9 +14,9 @@
           <div class="form-group">
             <%= f.label 'New comment' %>
             <%= f.text_area :content, class: 'form-control' %>
-          </div><div  class="left_edit">
+          </div>
           <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <% end %></div>
+        <% end %>
       </div>
     </div>
     <div class="alignright">
@@ -25,24 +25,21 @@
       <div class="btnd floatright">
         <%= @post.plusminus %>
         <%if user_signed_in? %>
-          <%= link_to 'Upvote', vote_up_post_path(@post), :method => :post, class: "btn btn-success leftmargin" %>
-          <%= link_to 'Downvote', vote_down_post_path(@post), :method => :post, class: "btn btn-danger leftmargin" %>
+          <%= link_to 'Upvote', vote_up_post_path(@post), :method => :post, class: "btn buttonbg leftmargin" %>
+          <%= link_to 'Downvote', vote_down_post_path(@post), :method => :post, class: "btn buttonbg leftmargin" %>
           <% if @post.user == current_user%>
-            <div  class="edite_del">
             <%= button_to 'Edit', edit_post_path(@post), class:"btn buttonbg", :method => "get" %>
-            </div>
-            <div  class="edite_del">
             <%= button_to 'Delete', @post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
-          <% end %></div><div  class="edite_del">
+          <% end %>
           <%if current_user.isadmin?%>
             <%= button_to 'Admin delete', @post, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
-        <% end %></div>
+          <% end %>
         <% end %>
       </div>
     </div>
 
     <%= button_to 'Back', posts_path, class:"btn buttonbg middle-class", :method => "get" %>
+      </div>
+</div>
 
-</div>
-</div>
 <%# TODO make new frontend, add functionality in backend, convert to haml if possible %>
