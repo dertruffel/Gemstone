@@ -1,9 +1,13 @@
-<%= comment.id %>
+<%if user_signed_in? %>
+  <%if current_user.isadmin?%>
+    <%= comment.id %>
+  <%end %>
+<%end %>
 
-<%= comment.user.email %>
+<%= comment.user.email+" says: " %>
 <%= comment.content %>
 
-<%= comment.plusminus %>
+<%= "; and has "+comment.plusminus.to_s+" votes" %>
 <%if user_signed_in? %>
   <%= link_to 'Upvote', vote_up_comment_path(comment), :method => :post, class: "btn buttonbg leftmargin" %>
   <%= link_to 'Downvote', vote_down_comment_path(comment),:method => :post, class: "btn buttonbg leftmargin" %>
