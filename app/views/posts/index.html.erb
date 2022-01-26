@@ -1,18 +1,21 @@
 
-
-<div id="posts" class="middle-class fixed">
-    <% @posts.each do |post| %><br/>
+<% @posts.each do |post| %><br/>
+<div id="posts" class="middle-class">
       <div class="box boxbg">
+        <div class="boximg">
         <%=link_to image_tag(post.image.url(:medium), :class => "image"), post %>
-       <br/>
         </div>
+       <br/>
+
         <div class="center_text">
-        <%= post.description %><br/>
+        <%= "Description: "+post.description %><br/>
         </div><br/>
-        <%= simple_format "@#{post.user.email if post.user}"%><br/><br/>
-        <div class="alignright">
-          <div class="btnd floatright">
-            <%= post.plusminus %>
+        <div class="margin-left">
+        <%= simple_format "From #{post.user.email if post.user}"%><br/><br/>
+        </div>
+        <div class="alignright margin-left">
+          <div class="btnd">
+            <%= "Vote count "+post.plusminus.to_s %>
             <%if user_signed_in? %>
               <%= link_to 'Upvote', vote_up_post_path(post), :method => :post, class: "btn buttonbg leftmargin" %>
               <%= link_to 'Downvote', vote_down_post_path(post), :method => :post, class: "btn buttonbg leftmargin" %>
@@ -25,9 +28,10 @@
             <% end %>
             <% end %>
           </div>
+          </div>
         </div>
 
-
+        <br/>
       </div>
     <% end %>
 <br/>
