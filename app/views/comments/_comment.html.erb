@@ -3,16 +3,14 @@
 <%= comment.user.email %>
 <%= comment.content %>
 
-<%= comment.plusminus %><div class="container-md"><div class="padding-bottom">
+<%= comment.plusminus %>
 <%if user_signed_in? %>
-  <%= link_to 'Upvote', vote_up_comment_path(comment), :method => :post, class: "btn btn-success leftmargin" %>
-  <%= link_to 'Downvote', vote_down_comment_path(comment),:method => :post, class: "btn btn-danger leftmargin" %>
-  <% if comment.user == current_user%><div class="edite_del">
+  <%= link_to 'Upvote', vote_up_comment_path(comment), :method => :post, class: "btn buttonbg leftmargin" %>
+  <%= link_to 'Downvote', vote_down_comment_path(comment),:method => :post, class: "btn buttonbg leftmargin" %>
+  <% if comment.user == current_user%>
     <%= button_to 'Delete', comment, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
-  <% end %></div>
-  <%if current_user.isadmin?%><div class="edite_del">
+  <% end %>
+  <%if current_user.isadmin?%>
     <%= button_to 'Admin delete', comment, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
-  <% end %></div>
+  <% end %>
 <% end %>
-</div>
-</div>
