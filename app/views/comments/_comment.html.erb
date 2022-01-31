@@ -1,0 +1,20 @@
+<%if user_signed_in? %>
+  <%if current_user.isadmin?%>
+    <%= comment.id %>
+  <%end %>
+<%end %>
+
+<%= comment.user.email+" says: " %>
+<%= comment.content %>
+
+<%= "; and has "+comment.plusminus.to_s+" votes" %>
+<%if user_signed_in? %>
+  <%= link_to 'Upvote', vote_up_comment_path(comment), :method => :post, class: "btn buttonbg leftmargin" %>
+  <%= link_to 'Downvote', vote_down_comment_path(comment),:method => :post, class: "btn buttonbg leftmargin" %>
+  <% if comment.user == current_user%>
+    <%= button_to 'Delete', comment, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  <%if current_user.isadmin?%>
+    <%= button_to 'Admin delete', comment, class:"btn buttonbg leftmargin", :method => "delete", data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>

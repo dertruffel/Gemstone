@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :comments  do
+    member do
+      post :vote_up, :vote_down
+    end
+  end
+
+  resources :posts do
+    resources :comments
+    member do
+      post :vote_up, :vote_down
+    end
+  end
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'posts#index'
